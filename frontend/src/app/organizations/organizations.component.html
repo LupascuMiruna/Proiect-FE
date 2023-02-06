@@ -1,4 +1,4 @@
-<mat-grid-list cols="4" rowHeight="2:1" rowWeight="2:1">
+<mat-grid-list cols="4" rowHeight="1.5:1" rowWeight="2:1">
   <h2>Organizations</h2>
   <mat-grid-tile *ngFor="let organization of organizations">
     <mat-card class="example-card" routerLink="/organizations/{{organization.facultyName}}">
@@ -12,7 +12,7 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-<div *ngIf="authService.$isAdmin">
-  <a appHighlight routerLink="/add-organization">Add your organization here!</a>
+<div *ngIf="authService.$isAdmin" class="add-organization">
+  <button mat-raised-button color="primary" routerLink="/add-organization">Add your organization here!</button>
 </div>
 
