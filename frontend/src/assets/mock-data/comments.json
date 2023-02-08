@@ -2,7 +2,7 @@
     {
         "id": 1,
         "text": "Comentariu 1 pentru postarea 1",
-        "createdDate": "11 May 2022",
+        "createdDate": "11 May 2023",
         "user": {
             "userId": 2,
             "userName": "User 2"
@@ -12,7 +12,7 @@
     {
         "id": 2,
         "text": "Comentariu 2 pentru postarea 1",
-        "createdDate": "11 May 2022",
+        "createdDate": "11 May 2023",
         "user": {
             "userId": 1,
             "userName": "User 1"
@@ -22,7 +22,7 @@
     {
         "id": 3,
         "text": "Comentariu 1 pentru postarea 2",
-        "createdDate": "11 May 2022",
+        "createdDate": "11 May 2023",
         "user": {
             "userId": 1,
             "userName": "User 1"
