@@ -190,6 +190,12 @@ const getUsers = (request: HttpRequest<any>) => {
   }));
 }
 
+const getUserHttp = (request: HttpRequest<any>) => {
+  return of(new HttpResponse({
+    status: 200, body: users[0]
+  }));
+}
+
 const getHw = (request: HttpRequest<any>) => {
   const user = JSON.parse(localStorage.getItem('user') || '{}');
 
@@ -247,6 +253,9 @@ export const selectHandler = (request: HttpRequest<any>) => {
   switch (request.method) {
     case 'GET':
 
+      if (pathname === "/User") {
+        return getUserHttp;
+      }
       if (pathname === "/Homework") {
         return getHw;
       }
@@ -263,36 +272,36 @@ export const selectHandler = (request: HttpRequest<any>) => {
         return getOrganization;
       }
 
-        // if (pathname == "/Posts") {
-        //   return getPosts;
-        // }
+      if (pathname == "/Posts") {
+        return getPosts;
+      }
 
-        // if (pathname.startsWith("/Posts") && pathname.endsWith("/Comments")) {
-        //   return getPostComments
-        // }
+      if (pathname.startsWith("/Posts") && pathname.endsWith("/Comments")) {
+        return getPostComments
+      }
 
-        // if (pathname.startsWith("/Posts")) {
-        //   return getPost
-        // }
+      if (pathname.startsWith("/Posts")) {
+        return getPost
+      }
 
-        // if (pathname == '/Users') {
-        //   return getUsers;
-        // }
+      if (pathname == '/Users') {
+        return getUsers;
+      }
 
 
         return null;
     case 'POST':
-        // if (pathname === "/api/Authentication/login") {
-        //     return login;
-        // }
+        if (pathname === "/api/Authentication/login") {
+            return login;
+        }
         
-        // if (pathname === "/api/Authentication/register") {
-        //     return register;
-        // }
+        if (pathname === "/api/Authentication/register") {
+            return register;
+        }
 
-        // if (pathname == "/Posts") {
-        //   return createPost
-        // }
+        if (pathname == "/Posts") {
+          return createPost
+        }
 
         if (pathname.startsWith("/Users")) {
           return postUser;
@@ -312,9 +321,9 @@ export const selectHandler = (request: HttpRequest<any>) => {
 
         return null;
     case 'PUT':
-      // if (pathname.startsWith("/Posts")) {
-      //   return updatePost;
-      // }
+      if (pathname.startsWith("/Posts")) {
+        return updatePost;
+      }
       return null;
     case 'DELETE':
       return null;
